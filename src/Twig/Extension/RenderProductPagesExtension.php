@@ -23,7 +23,7 @@ final class RenderProductPagesExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('bitbag_cms_render_product_pages', [$this->productPagesRuntime, 'renderProductPages'], ['is_safe' => ['html']]),
+            new TwigFunction('bitbag_cms_render_product_pages', $this->productPagesRuntime->renderProductPages(...), ['is_safe' => ['html']]),
         ];
     }
 }

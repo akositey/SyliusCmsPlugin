@@ -11,11 +11,13 @@ declare(strict_types=1);
 namespace BitBag\SyliusCmsPlugin\Command;
 
 use BitBag\SyliusCmsPlugin\Processor\ImportProcessorInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(name: 'bitbag:import:csv', description: 'Imports a resource')]
 final class ImportFromCsvCommand extends Command
 {
     public function __construct(private ImportProcessorInterface $importProcessor)
@@ -26,9 +28,9 @@ final class ImportFromCsvCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setName('bitbag:import:csv')
-            ->setDescription('Imports a resource')
-            ->setHelp('This command allows you to import resources from CSV. It takes file path and resource name as parameter.')
+            ->setHelp(
+                'This command allows you to import resources from CSV. It takes file path and resource name as parameter.',
+            )
             ->addArgument('resource', InputArgument::REQUIRED, 'Importer resource name.')
             ->addArgument('file', InputArgument::REQUIRED, 'CSV file path.')
         ;
