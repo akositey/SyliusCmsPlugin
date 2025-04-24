@@ -55,4 +55,5 @@ return [
     FOS\CKEditorBundle\FOSCKEditorBundle::class => ['all' => true],
     BitBag\SyliusCmsPlugin\BitBagSyliusCmsPlugin::class => ['all' => true],
     JMS\SerializerBundle\JMSSerializerBundle::class => ['all' => true],
+    Sonata\BlockBundle\SonataBlockBundle::class => ['all' => true],
 ];
